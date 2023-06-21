@@ -20,10 +20,16 @@ function sumNumNotString(inputArray: NumOrString[]): number {
   return output;
 }
 
+function isNumber(el: number | string): boolean {
+  if (typeof el === "number") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function makeNumArray(originalArray: NumOrString[]): number[] {
-  let numArray = originalArray.filter(
-    (el): el is number => typeof el === "number"
-  );
+  let numArray = originalArray.filter(isNumber) as number[];
   return numArray;
 }
 
